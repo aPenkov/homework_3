@@ -10,18 +10,23 @@ GAME RULES:
 */
 
 const RESET_VALUE = 2;
-
 let scores = [0, 0];
 let activePlayer = 0;
 let current = 0;
 const diceElement_1 = document.querySelector('#dice_1');
 const diceElement_2 = document.querySelector('#dice_2');
+let scoresForWin;
 
 const initGame = () => {
   document.querySelector('#current-0').textContent = 0;
   document.querySelector('#current-1').textContent = 0;
   document.querySelector('#score-0').textContent = 0;
   document.querySelector('#score-1').textContent = 0;
+  scoresForWin = parseInt(document.getElementById('input-limit').value)
+  if (scoresForWin == NaN) {
+    scoresForWin = 100
+  }
+  console.log(scoresForWin)
   diceElement_1.style.display = 'none';
   diceElement_2.style.display = 'none';
   scores = [0, 0];
@@ -44,7 +49,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
   if (dice_1 !== RESET_VALUE && dice_2 !== RESET_VALUE && dice_1 !== dice_2) {
     current += dice_1 + dice_2;
     document.getElementById('current-'+activePlayer).textContent = current;
-    if (scores[activePlayer] + current >= 20) {
+    if (scores[activePlayer] + current >= scoresForWin) {
        alert(`Player ${activePlayer} won!!!`);
     }
     
