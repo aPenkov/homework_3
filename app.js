@@ -79,7 +79,13 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     document.getElementById('current-'+activePlayerId).textContent = current;
     playersList[activePlayerId].setScore(current)
     if (scores[activePlayerId] + current >= scoresForWin) {
-       alert(`Player ${activePlayerId} won!!!`);
+      if (!!localStorage.getItem(playersList[activePlayerId].name)) {
+        let winCount = +localStorage.getItem(playersList[activePlayerId].name)++
+        localStorage.setItem(playersList[activePlayerId].name, winCount)
+      }else {
+        localStorage.setItem(playersList[activePlayerId].name, 1)
+      }
+      alert(`Player ${playersList[activePlayerId].name} won!!!`);
     }
     
   } else {
@@ -107,4 +113,13 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
 document.querySelector('.btn-new').addEventListener('click', function() {
   initGame();
+});
+
+document.querySelector('.btn-winners').addEventListener('click', function() {
+  let winnersList = ''
+  Object.keys(localStorage).sort((key, prevKey) => { return +localStorage.getItem(key) 
+    - +localStorage.getItem(prevKey) }).forEach((el) => {
+      winnersList +=`${el} : ${localStorage.getItem(el)}\n`
+    })
+  alert(winnersList)
 });

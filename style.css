@@ -71,12 +71,10 @@ body {
     text-align: left;
     letter-spacing: 2px;
     font-weight: 100;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 20px;
     float:left;
-
-
 }
 
 #input-limit{
@@ -86,6 +84,18 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+.winners-list {
+    font-size: 20px;
+    text-align: left;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    float:right;
+}
+
 .active { background-color: #f7f7f7; }
 .active .player-name { font-weight: 300; }
 
@@ -133,6 +143,9 @@ button {
     cursor: pointer;
     font-weight: 300;
     transition: background-color 0.3s, color 0.3s;
+}
+.btn-winners {
+    position:relative;
 }
 
 button:hover { font-weight: 600; }
