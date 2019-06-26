@@ -33,9 +33,16 @@
             <button class="btn-roll"><i class="ion-ios-loop"></i>Бросок</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Сохранить</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice">
+            <img src="dice-5.png" alt="Dice" class="dice" id="dice_1">
+            <img src="dice-3.png" alt="Dice" class="dice" id="dice_2">
+            <div class="input-limit-block">
+                <span> Количество очков для победы:</span> <input type="text" name="fndfgdfame" value="100" placeholder="введите число" id="input-limit"><br>
+            </div>
+            <div class="winners-list">
+                <button class="btn-winners"><i class="ion-ios-basketball"></i>Победители</button>
+            </div>
         </div>
         
-        <script src="app.js"></script>
+        <script src="./dist/main.js"></script>
     </body>
 </html>
